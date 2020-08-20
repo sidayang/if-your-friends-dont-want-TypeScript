@@ -1,0 +1,6 @@
+const { EMIT_PATH, SRC_PATH, TSCONFIG_EMIT_PATH, TSCONFIG_PATH, JSCONFIG_PATH } = require('./path')
+const shell = require('shelljs')
+shell.exec(`yarn transpile`)
+shell.exec(`rm -rf ${SRC_PATH} ${TSCONFIG_EMIT_PATH}`)
+shell.exec(`mv ${EMIT_PATH} ${SRC_PATH}`)
+shell.exec(`mv ${TSCONFIG_PATH} ${JSCONFIG_PATH}`)
